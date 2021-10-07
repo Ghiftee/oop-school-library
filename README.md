@@ -2,7 +2,12 @@
 
 # OOP school library
 
-> This is a school library 
+> Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them. The app that you will create will allow a you to:
+
+- Add new students or teachers.
+- Add new books.
+- Save records of who borrowed a given book and when.
+> And all of this will be built in a beautiful and well-organized way! 
 
 ### Milestone 1:
 
@@ -15,6 +20,10 @@
 - Create corrector class
 - Set instance of corrector in person on initialization
 - Add new method to person that validates name
+
+### Milestone 3:
+- Create Classroom, Book and Rental classes
+- Implement several relationships between classes
 
 ## Built With
 
