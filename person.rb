@@ -1,10 +1,10 @@
 require_relative 'corrector'
 
 class Person
-  attr_accessor :name, :age
-  attr_reader :id, :rentals
+  attr_accessor :name, :age, :rentals
+  attr_reader :id
 
-  def initialize(age:, name: 'Unknown', parent_permission: true)
+  def initialize(age, name: 'Unknown', parent_permission: true)
     @id = id
     @name = name
     @age = age
@@ -27,3 +27,6 @@ class Person
     @age >= 18
   end
 end
+
+person1 = Person.new(11, 'Gift', false)
+puts person1.can_use_services?
