@@ -16,6 +16,10 @@
 - Set instance of corrector in person on initialization
 - Add new method to person that validates name
 
+### Milestone 3:
+- Create Classroom, Book and Rental classes
+- Implement several relationships between classes
+
 ## Built With
 
 - Ruby
