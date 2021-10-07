@@ -11,19 +11,23 @@
 
 ### Milestone 1:
 
-- Create person class
-- Create student class that is a subclass of person class
-- Create teacher class that is a subclass of person class
+- Create person class.
+- Create student class that is a subclass of person class.
+- Create teacher class that is a subclass of person class.
 
 ### Milestone 2:
 
-- Create corrector class
-- Set instance of corrector in person on initialization
-- Add new method to person that validates name
+- Create corrector class.
+- Set instance of corrector in person on initialization.
+- Add new method to person that validates name.
 
 ### Milestone 3:
-- Create Classroom, Book and Rental classes
-- Implement several relationships between classes
+- Create Classroom, Book and Rental classes.
+- Implement several relationships between classes.
+
+### Milestone 4:
+- Create a main.rb file that will serve as your console app entry-point.
+- In main.rb define the entry point, which will be a method called main that is invoked at the end of the file.
 
 ## Built With
 
