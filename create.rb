@@ -48,14 +48,14 @@ class Create
     book
   end
 
-  def self.rental
+  def self.rental(books,people)
     puts 'Select a book from the following list by number'
-    @books.each_with_index { |book, idx| puts "#{idx}) Title: #{book.title}, Author: #{book.author}" }
+    books.each_with_index { |book, idx| puts "#{idx}) Title: #{book.title}, Author: #{book.author}" }
 
     book_index = gets.chomp.to_i
 
     puts 'Select a person from the following list by number(not id)'
-    @people.each_with_index do |person, idx|
+    people.each_with_index do |person, idx|
       puts "#{idx}) ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
     end
 
@@ -65,7 +65,7 @@ class Create
     print 'Date: '
     date = gets.chomp
 
-    rental = Rental.new(date, @books[book_index], @people[person_index])
+    rental = Rental.new(date, books[book_index], people[person_index])
 
     puts 'Rental created successfully'
 

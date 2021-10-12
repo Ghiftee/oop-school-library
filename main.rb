@@ -34,25 +34,21 @@ class App
     case options
     when '1'
       @listings.books
-      choices
     when '2'
       @listings.people
-      choices
     when '3'
       create_person
-      choices
     when '4'
       @books << Create.book
-      choices
     when '5'
-      @rentals << Create.rental
-      choices
+      @rentals << Create.rental(@books,@people)
     when '6'
       @listings.rentals
-      choices
     else
       puts 'Exit'
+      return
     end
+    choices
   end
 
   def create_person
