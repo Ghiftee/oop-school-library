@@ -32,18 +32,12 @@ class App
 
   def start_options(options)
     case options
-    when '1'
-      @listings.books
-    when '2'
-      @listings.people
-    when '3'
-      create_person
-    when '4'
-      @books << Create.book
-    when '5'
-      @rentals << Create.rental(@books, @people)
-    when '6'
-      @listings.rentals
+    when '1' then @listings.books
+    when '2' then @listings.people
+    when '3' then create_person
+    when '4' then @books << Create.book
+    when '5' then @rentals << Create.rental(@books, @people)
+    when '6' then @listings.rentals
     else
       puts 'Exit'
       return
