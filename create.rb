@@ -1,4 +1,3 @@
-
 class Create
   def self.student
     print 'Age: '
@@ -48,7 +47,7 @@ class Create
     book
   end
 
-  def self.rental(books,people)
+  def self.rental(books, people)
     puts 'Select a book from the following list by number'
     books.each_with_index { |book, idx| puts "#{idx}) Title: #{book.title}, Author: #{book.author}" }
 

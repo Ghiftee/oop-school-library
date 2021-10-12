@@ -41,7 +41,7 @@ class App
     when '4'
       @books << Create.book
     when '5'
-      @rentals << Create.rental(@books,@people)
+      @rentals << Create.rental(@books, @people)
     when '6'
       @listings.rentals
     else
