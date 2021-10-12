@@ -1,10 +1,5 @@
-require_relative 'person'
-require_relative 'student'
-require_relative 'teacher'
 require_relative 'classroom'
-require_relative 'book'
-require_relative 'rental'
-
+require_relative 'listings'
 class App
   attr_accessor :people, :books
 
@@ -12,6 +7,7 @@ class App
     @people = []
     @books = []
     @rentals = []
+    @listings = Listings.new(@books,@people,@rentals)
   end
 
   def run
@@ -36,9 +32,9 @@ class App
   def start_options(options)
     case options
     when '1'
-      list_books
+      @listings.book
     when '2'
-      list_people
+      @listings.people
     when '3'
       create_person
     when '4'
@@ -46,20 +42,10 @@ class App
     when '5'
       create_rental
     when '6'
-      list_rental_by_person_id
+      @listings.rentals
     else
       puts 'Exit'
     end
-  end
-
-  def list_books
-    @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
-    choices
-  end
-
-  def list_people
-    @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, age: #{person.age}" }
-    choices
   end
 
   def create_person
@@ -149,18 +135,6 @@ class App
 
     puts 'Rental created successfully'
 
-    choices
-  end
-
-  def list_rental_by_person_id
-    print 'ID of person: '
-    id = gets.chomp
-
-    puts 'Rentals: '
-
-    @rentals.each do |rental|
-      puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id.to_i
-    end
     choices
   end
 end
