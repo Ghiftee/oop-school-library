@@ -41,7 +41,7 @@ class App
     @listings.books
   end
 
-  def list_people 
+  def list_people
     @listings.people
   end
 
