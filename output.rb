@@ -1,12 +1,20 @@
+require 'json'
+
 class Output 
   def initialize(file_name)
     @file_name = file_name
   end
 
+  def valid_json?
+    JSON.parse(File.read(@file_name))
+      true
+    rescue JSON::ParserError => e
+      false
+  end
+
   def read
-    f = File.open(@file_name)
-    f_data = f.readlines.map(&:chomp)
-    f.close
-    f_data
+    if valid_json?
+      JSON.parse(File.read(@file_name))
+    end
   end
 end

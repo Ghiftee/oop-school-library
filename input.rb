@@ -4,6 +4,6 @@ class Input
     @file_name = file_name
   end
   def write(content)
-    File.write(@file_name, JSON.generate("#{content}\n"), mode: 'a')
+    File.write(@file_name, JSON.dump(content))
   end
 end

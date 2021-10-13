@@ -9,4 +9,14 @@ class Teacher < Person
   def can_use_services?
     true
   end
+
+  def to_hash
+    {
+      :type => 'Teacher',
+      :name => @name,
+      :specialization => @specialization,
+      :age => @age,
+      :id => @id
+    }
+  end
 end

@@ -12,10 +12,10 @@ class Book
     rental.book = self
   end
 
-  def to_s
-    [
-      @title,
-      @author
-    ]
+  def to_hash
+    {
+      :title => @title,
+      :author => @author
+    }
   end
 end

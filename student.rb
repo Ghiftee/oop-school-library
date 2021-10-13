@@ -16,4 +16,15 @@ class Student < Person
     @classroom = classroom
     classroom.students << self unless classroom.students.include?(self)
   end
+
+  def to_hash
+    {
+      :type => 'Student',
+      :name => @name,
+      :age => @age,
+      :parent_permission => @parent_permission,
+      :id => @id
+    }
+  end
+
 end

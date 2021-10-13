@@ -5,19 +5,20 @@ require_relative './output'
 class InputOutput
 
   def initialize(name)
+    @file_name = name
     CreateFile.new(name)
     @input = Input.new(name)
     @output = Output.new(name)
+    @hash = @output.read || []
   end
 
   def write(content)
-    @input.write(content)
+    @hash << content
+    @input.write(@hash)
   end
 
   def read
-    @output.read
+    @hash
   end
 end
 
-i = InputOutput.new("simon.txt")
-puts i.read

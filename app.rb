@@ -6,9 +6,10 @@ class App
   attr_accessor :people, :books
 
   def initialize
-    @peopleFile = InputOutput.new("people.json")
-    @booksFile = InputOutput.new("books.json")
-    @rentalsFile = InputOutput.new("rentals.json")
+    @peopleIO = InputOutput.new("people.json")
+    @booksIO = InputOutput.new("books.json")
+    @rentalsIO = InputOutput.new("rentals.json")
+
     @people = []
     @books = []
     @rental = []
@@ -34,12 +35,12 @@ class App
     case answer
     when '1'
       new_person = Create.student
-      @peopleFile.write(new_person.to_s)
       @people << new_person
+      @peopleIO.write(new_person.to_hash)
     when '2'
       new_person = Create.teacher
-      @peopleFile.write(new_person.to_s)
       @people << new_person
+      @peopleIO.write(new_person.to_hash)
     else
       puts 'Please choose a valid number'
     end
@@ -55,14 +56,12 @@ class App
 
   def create_book
     new_book = Create.book
-    @booksFile.write(new_book.to_s)
     @books << new_book
+    @booksIO.write(new_book.to_hash)
   end
 
   def create_rental
-    new_rental = Create.rental(@books, @people)
-    @rentalsFile.write(new_rental.to_s)
-    @rental << new_rental
+    @rental << Create.rental(@books, @people)
   end
 
   def list_rentals
