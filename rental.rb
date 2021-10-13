@@ -14,9 +14,9 @@ class Rental
   def to_s
     [
       @date,
-      book.to_s.split,
-      person.to_s.split
+      book.to_s.map { |e| e },
+      person.to_s.map{|e| e }
     ]
   end
-  
+
 end

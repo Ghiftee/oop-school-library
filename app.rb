@@ -12,7 +12,7 @@ class App
     @people = []
     @books = []
     @rental = []
-    @listings = Listings.new(@books, @people, @rentals)
+    @listings = Listings.new(@books, @people, @rental)
   end
 
   def choices
@@ -60,11 +60,12 @@ class App
   end
 
   def create_rental
-    @rentalsFile.write(Create.rental(@books, @people).to_s)
-    @rentals << Create.rental(@books, @people)
+    new_rental = Create.rental(@books, @people)
+    @rentalsFile.write(new_rental.to_s)
+    @rental << new_rental
   end
 
   def list_rentals
-    @listings.rentals
+    @listings.rental
   end
 end

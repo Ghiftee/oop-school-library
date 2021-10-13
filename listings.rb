@@ -5,10 +5,10 @@ require_relative 'student'
 require_relative 'teacher'
 
 class Listings
-  def initialize(books, people, rentals)
+  def initialize(books, people, rental)
     @books = books
     @people = people
-    @rentals = rentals
+    @rental = rental
   end
 
   def books
@@ -19,13 +19,13 @@ class Listings
     @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, age: #{person.age}" }
   end
 
-  def rentals
+  def rental
     print 'ID of person: '
     id = gets.chomp
 
     puts 'Rentals: '
 
-    @rentals.each do |rental|
+    @rental.each do |rental|
       puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id.to_i
     end
   end
