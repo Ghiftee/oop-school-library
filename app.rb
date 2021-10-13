@@ -61,7 +61,9 @@ class App
   end
 
   def create_rental
-    @rental << Create.rental(@books, @people)
+    new_rental = Create.rental(@books, @people)
+    @rental << new_rental
+    @rentalsIO.write(new_rental.to_hash)
   end
 
   def list_rentals
