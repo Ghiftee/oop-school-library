@@ -10,4 +10,13 @@ class Rental
     @person = person
     person.rentals << self unless person.rentals.include?(self)
   end
+
+  def to_s
+    [
+      @date,
+      book.to_s.split,
+      person.to_s.split
+    ]
+  end
+  
 end
