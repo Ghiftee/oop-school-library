@@ -13,9 +13,10 @@ class Rental
 
   def to_hash
     {
-      :date => @date,
-      :title => @book.title,
-      :author => @book.author
+      "date" => @date,
+      "title" => @book.title,
+      "author" => @book.author,
+      "person-id" => @person.id
     }
   end
 

@@ -3,8 +3,8 @@ require_relative 'person'
 class Student < Person
   attr_reader :classroom
 
-  def initialize(age:, classroom:, name: 'Unknown', parent_permission: true)
-    super(name: name, age: age, parent_permission: parent_permission)
+  def initialize(age:, classroom: 'none', name: 'Unknown', parent_permission: true, id: 0)
+    super(name: name, age: age, parent_permission: parent_permission, id: id)
     @classroom = classroom
   end
 
@@ -19,11 +19,11 @@ class Student < Person
 
   def to_hash
     {
-      :type => 'Student',
-      :name => @name,
-      :age => @age,
-      :parent_permission => @parent_permission,
-      :id => @id
+      "type" => 'Student',
+      "name" => @name,
+      "age" => @age,
+      "parent_permission" => @parent_permission,
+      "id" => @id
     }
   end
 
