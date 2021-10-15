@@ -9,7 +9,7 @@ class Output
     JSON.parse(File.read(@file_name))
     true
   rescue JSON::ParserError => e
-    false
+    raise "Unexpected response (#{e})"
   end
 
   def read
