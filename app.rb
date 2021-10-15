@@ -32,7 +32,6 @@ class App
   def create_person
     print 'Do you want to create a student(1) or a teacher(2)? [Input the number]'
     answer = gets.chomp
-    new_person = nil
     case answer
     when '1'
       new_person = Create.student
