@@ -7,13 +7,13 @@ class App
   attr_accessor :people, :books
 
   def initialize
-    @peopleIO = InputOutput.new('people.json')
-    @booksIO = InputOutput.new('books.json')
-    @rentalsIO = InputOutput.new('rentals.json')
+    @people_io = InputOutput.new('people.json')
+    @books_io = InputOutput.new('books.json')
+    @rentals_io = InputOutput.new('rentals.json')
 
-    @people = Converter.hash_to_people_arr @peopleIO.read
-    @books = Converter.hash_to_books_arr @booksIO.read
-    @rental = Converter.hash_to_rentals_arr @rentalsIO.read, @books, @people
+    @people = Converter.hash_to_people_arr @people_io.read
+    @books = Converter.hash_to_books_arr @books_io.read
+    @rental = Converter.hash_to_rentals_arr @rentals_io.read, @books, @people
     @listings = Listings.new(@books, @people, @rental)
   end
 
@@ -37,11 +37,11 @@ class App
     when '1'
       new_person = Create.student
       @people << new_person
-      @peopleIO.write(new_person.to_hash)
+      @people_io.write(new_person.to_hash)
     when '2'
       new_person = Create.teacher
       @people << new_person
-      @peopleIO.write(new_person.to_hash)
+      @people_io.write(new_person.to_hash)
     else
       puts 'Please choose a valid number'
     end
@@ -58,13 +58,13 @@ class App
   def create_book
     new_book = Create.book
     @books << new_book
-    @booksIO.write(new_book.to_hash)
+    @books_io.write(new_book.to_hash)
   end
 
   def create_rental
     new_rental = Create.rental(@books, @people)
     @rental << new_rental
-    @rentalsIO.write(new_rental.to_hash)
+    @rentals_io.write(new_rental.to_hash)
   end
 
   def list_rentals
