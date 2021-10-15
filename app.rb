@@ -1,14 +1,20 @@
 require_relative 'classroom'
 require_relative 'listings'
 require_relative 'create'
+require_relative 'input_output'
+require_relative 'converter'
 class App
   attr_accessor :people, :books
 
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
-    @listings = Listings.new(@books, @people, @rentals)
+    @people_io = InputOutput.new('people.json')
+    @books_io = InputOutput.new('books.json')
+    @rentals_io = InputOutput.new('rentals.json')
+
+    @people = Converter.hash_to_people_arr @people_io.read
+    @books = Converter.hash_to_books_arr @books_io.read
+    @rental = Converter.hash_to_rentals_arr @rentals_io.read, @books, @people
+    @listings = Listings.new(@books, @people, @rental)
   end
 
   def choices
@@ -26,12 +32,15 @@ class App
   def create_person
     print 'Do you want to create a student(1) or a teacher(2)? [Input the number]'
     answer = gets.chomp
-
     case answer
     when '1'
-      @people << Create.student
+      new_person = Create.student
+      @people << new_person
+      @people_io.write(new_person.to_hash)
     when '2'
-      @people << Create.teacher
+      new_person = Create.teacher
+      @people << new_person
+      @people_io.write(new_person.to_hash)
     else
       puts 'Please choose a valid number'
     end
@@ -46,14 +55,18 @@ class App
   end
 
   def create_book
-    @books << Create.book
+    new_book = Create.book
+    @books << new_book
+    @books_io.write(new_book.to_hash)
   end
 
   def create_rental
-    @rentals << Create.rental(@books, @people)
+    new_rental = Create.rental(@books, @people)
+    @rental << new_rental
+    @rentals_io.write(new_rental.to_hash)
   end
 
   def list_rentals
-    @listings.rentals
+    @listings.rental
   end
 end
