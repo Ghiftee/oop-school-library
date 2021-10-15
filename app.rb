@@ -7,9 +7,9 @@ class App
   attr_accessor :people, :books
 
   def initialize
-    @peopleIO = InputOutput.new("people.json")
-    @booksIO = InputOutput.new("books.json")
-    @rentalsIO = InputOutput.new("rentals.json")
+    @peopleIO = InputOutput.new('people.json')
+    @booksIO = InputOutput.new('books.json')
+    @rentalsIO = InputOutput.new('rentals.json')
 
     @people = Converter.hash_to_people_arr @peopleIO.read
     @books = Converter.hash_to_books_arr @booksIO.read

@@ -3,7 +3,6 @@ require_relative './input'
 require_relative './output'
 
 class InputOutput
-
   def initialize(name)
     @file_name = name
     CreateFile.new(name)
@@ -21,4 +20,3 @@ class InputOutput
     @hash
   end
 end
-

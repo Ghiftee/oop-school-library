@@ -19,12 +19,11 @@ class Student < Person
 
   def to_hash
     {
-      "type" => 'Student',
-      "name" => @name,
-      "age" => @age,
-      "parent_permission" => @parent_permission,
-      "id" => @id
+      'type' => 'Student',
+      'name' => @name,
+      'age' => @age,
+      'parent_permission' => @parent_permission,
+      'id' => @id
     }
   end
-
 end
