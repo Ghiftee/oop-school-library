@@ -26,7 +26,7 @@ class Converter
   end
 
   def self.hash_to_books_arr(arr)
-    instance_arr = arr.map do |item|
+    arr.map do |item|
       Book.new(item['title'], item['author'])
     end
   end
